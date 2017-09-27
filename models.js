@@ -53,6 +53,9 @@ function createShoppingList() {
   return storage;
 }
 
+
+//*wicked* awkward that one model is 'ShoppingList' and the other 'Recipes'
+//plural vs. singular is something real ORM handles elegantly. Here less so
 const Recipes = {
   create: function(name, ingredients) {
     console.log('Creating a new recipe');
@@ -84,7 +87,8 @@ const Recipes = {
   }
 };
 
-
+//nothing implicit in the model makes the ingredients come in as an array
+//which, that's life in Javascript land
 function createRecipes() {
   const storage = Object.create(Recipes);
   storage.items = {};
